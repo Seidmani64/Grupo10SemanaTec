@@ -31,7 +31,6 @@ La función k_means genera k (cantidad de clusters) centros aleatoriamente utili
 Esta función también corre todas las iteraciones, actualizando los centros y puntos correspondientes cada vez, llamando a la función show_clusters_centroids de visualizations.py para graficarlo en cada iteracion
 
 #### Resultados
-<<<<<<< HEAD
 Utilizando un valor de k de 3, resulta en los siguientes clusters
 <img src="./images/run1/kmeans_Result.png" width="auto">
 
@@ -44,7 +43,8 @@ Finalmente, modificando el valor de k a ser 4, el resultado cambia de nuevo
 ##### Conclusiones
 
 Analizando los datos de Iris utilizando K-means se puede entender algunas cosas sobre Iris, particularmente analizando ciertos variables y los centros de los clusters.
-
 Los centros pueden representar alguna forma del promedio de las instancias de las clases de Iris, ya que tienen la menor distancia a los otros miembros del mismo cluster
-=======
->>>>>>> bf8f46bf7ef0e115ec5ecdedda784337ecb30883
+Los clusters cambian drasticamente con distintos valores de k, como resultado, saber cual valor usar depende de experimentación y los data sets siendo analizados. En el caso de Iris, el valor de k que nosotros creemos más útil para analizar fue tres, ya que vimos los casos de 2 y 4 y por lo general creemos que resultan clusters con demasiados puntos o muy poquitos en comparación. Al igual, Iris tiene tres clases entonces simplemente se puede elegir k como 3 por consecuencia.
+Los centros se vuelven más representativos con valores de k más altos, ya que son puntos más y más cercanos al centro los que se acumulan dentro del cluster, a diferencia de un valor de k que agrupa a puntos más y más lejanos junto con los centros.
+Los centros tienen una distancia considerable entre si, no totalmente a lados contrarios pero suficiente para no considerarlos cercanos entre si. Los centros más cercanos son los dos que se encuentran con el grupo de puntos grande en la parte inferior hacia la derecha de las imágenes, pero aún así existe una distancia entre ellos.
+Los centros son vitales para el análisis de los clusters, y analizando su posición se puede entender más sobre las distintas clases presentes en el dataset de Iris. Puede uno entender que ciertos rangos de cada variable son más presentes en ciertas clases, es decir, el sepal length de 5 y sepal width de 3.5 suele corresponder a una clase, mientras los mismos de 5.7 y 2.7 son más comunmente vistos en otra clase.
