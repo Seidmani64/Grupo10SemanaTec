@@ -21,22 +21,26 @@ def cercanos(puntos, centros):
     return clusters
 
 
-def centros(lista):
+def centros(clusters):
     centrosList = []
-    for i in range(len(lista)):
-        centrosList.append(np.average(lista[i]))
+    for i in range(len(clusters)):
+        centrosList.append(np.average(clusters[i]))
     return centrosList
 
-def k_means(puntos, k):
-    random.seed(None)
-    centrosList = []
-    for i in range(k):
-        centrosList.append(puntos[randint(0,len(puntos)-1)])
-    for j in range(10):
-        centrosList = centros(cercanos(puntos,centrosList))
+def k_means(puntos, k, iterations = 10):
+    idx = np.random.randint(len(points),size=k)
+
+    centros = points[idx,:]
+    clusters = get_clusters(points,centroids)
+
+    for i in range(iterations):
+        clusters = cercanos(puntos, centros)
+        centros = centros(clusters)
+
+    return clusters,centroids
 
 if __name__ == "__main__":
-    #lista1 = [1,2,3]
+    lista1 = [1,2,3]
     #lista2 = [4,5,6]
     #print(f"La distancia entre las listas es: {distancia(lista1,lista2)}")
     #lista = [[1,2,3],[4,5,6]]
