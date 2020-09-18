@@ -30,6 +30,9 @@ La función find_centros crea una lista y la llena con los promedios de cada fil
 La función k_means genera k (cantidad de clusters) centros aleatoriamente utilizando los puntos
 Esta función también corre todas las iteraciones, actualizando los centros y puntos correspondientes cada vez, llamando a la función show_clusters_centroids de visualizations.py para graficarlo en cada iteracion
 
+#### Como correr
+Para correr el código simplemente es necesario descargar el repositorio y correr el archivo k_means.py esto resulta en las graficas de todas las iteraciones
+
 #### Resultados
 Utilizando un valor de k de 3, resulta en los siguientes clusters
 <img src="./images/run1/kmeans_Result.png" width="auto">
