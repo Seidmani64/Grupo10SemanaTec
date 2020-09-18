@@ -9,12 +9,16 @@ def distancia(lista1, lista2):
     return np.sqrt(sum)
 
 def cercanos(puntos, centros):
-    pass
-    #list = []
-    #for i in range(len(centros)):
-        #newList = []
-        #list.append(newList)
-    #for i in range(len(puntos)):
+    clusters = [[] for f in centros]
+
+    for i, punto in enumerate(puntos):
+        point_to_centroids = []
+        for j, centro in enumerate(centros):
+            point_to_centroids.append(distancia(punto, centros))
+        smallest = np.argmin(point_to_centroids)
+        clusters[smallest].append(punto)
+
+    return clusters
 
 
 def centros(lista):
@@ -23,14 +27,13 @@ def centros(lista):
         centrosList.append(np.average(lista[i]))
     return centrosList
 
-def k_means(puntos):
+def k_means(puntos, k):
     random.seed(None)
     centrosList = []
-    k = input("Enter the value for k: ")
     for i in range(k):
         centrosList.append(puntos[randint(0,len(puntos)-1)])
-    for j in range(100):
-        centros(cercanos(puntos,centrosList))
+    for j in range(10):
+        centrosList = centros(cercanos(puntos,centrosList))
 
 if __name__ == "__main__":
     #lista1 = [1,2,3]
