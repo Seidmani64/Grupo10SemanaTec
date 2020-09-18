@@ -33,7 +33,7 @@ Esta función también corre todas las iteraciones, actualizando los centros y p
 #### Como correr
 Para correr el código simplemente es necesario descargar el repositorio y correr el archivo k_means.py esto resulta en las graficas de todas las iteraciones
 
-#### Resultados
+## Resultados
 Utilizando un valor de k de 3, resulta en los siguientes clusters
 <img src="./images/run1/kmeans_Result.png" width="auto">
 
@@ -43,7 +43,7 @@ Si se utiliza un valor de k de 2, los resultados cambian drasticamente
 Finalmente, modificando el valor de k a ser 4, el resultado cambia de nuevo
 <img src="./images/run7/kmeans_Result.png" width="auto">
 
-##### Conclusiones
+## Conclusiones
 
 Analizando los datos de Iris utilizando K-means se puede entender algunas cosas sobre Iris, particularmente analizando ciertos variables y los centros de los clusters.
 
