@@ -1,5 +1,8 @@
 import numpy as np
 
+from io_utilities import load_data
+from visualizations import show_clusters_centroids
+
 def distancia(lista1, lista2):
     sum = 0
 
@@ -14,34 +17,45 @@ def cercanos(puntos, centros):
     for i, punto in enumerate(puntos):
         point_to_centroids = []
         for j, centro in enumerate(centros):
-            point_to_centroids.append(distancia(punto, centros))
+            point_to_centroids.append(distancia(punto, centro))
         smallest = np.argmin(point_to_centroids)
         clusters[smallest].append(punto)
 
     return clusters
 
 
-def centros(clusters):
+def find_centros(clusters):
     centrosList = []
-    for i in range(len(clusters)):
-        centrosList.append(np.average(clusters[i]))
+    for i in clusters:
+        centrosList.append(np.mean(i, axis = 0))
     return centrosList
 
 def k_means(puntos, k, iterations = 10):
-    idx = np.random.randint(len(points),size=k)
+    idx = np.random.randint(len(puntos),size=k)
 
-    centros = points[idx,:]
-    clusters = get_clusters(points,centroids)
+    centros = puntos[idx,:]
+    clusters = cercanos(puntos,centros)
 
     for i in range(iterations):
-        clusters = cercanos(puntos, centros)
-        centros = centros(clusters)
 
-    return clusters,centroids
+        show_clusters_centroids(
+                clusters,
+                centros,
+                "Graph",
+            )
+
+        clusters = cercanos(puntos, centros)
+        centros = find_centros(clusters)
+
+    return clusters,centros
 
 if __name__ == "__main__":
-    lista1 = [1,2,3]
-    #lista2 = [4,5,6]
-    #print(f"La distancia entre las listas es: {distancia(lista1,lista2)}")
-    #lista = [[1,2,3],[4,5,6]]
-    #print(f"Los centros son: {centros(lista)}")
+    data = load_data('./data/iris.data')
+    k = 4
+
+    X = np.array([f[:-1] for f in data])
+    y = np.array([f[-1] for f in data])
+
+    clusters,centros = k_means(X,k)
+
+    show_clusters_centroids(clusters,centros,"Result",keep=True)
