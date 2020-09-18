@@ -31,6 +31,7 @@ La función k_means genera k (cantidad de clusters) centros aleatoriamente utili
 Esta función también corre todas las iteraciones, actualizando los centros y puntos correspondientes cada vez, llamando a la función show_clusters_centroids de visualizations.py para graficarlo en cada iteracion
 
 #### Resultados
+<<<<<<< HEAD
 Utilizando un valor de k de 3, resulta en los siguientes clusters
 <img src="./images/run1/kmeans_Result.png" width="auto">
 
@@ -45,3 +46,5 @@ Finalmente, modificando el valor de k a ser 4, el resultado cambia de nuevo
 Analizando los datos de Iris utilizando K-means se puede entender algunas cosas sobre Iris, particularmente analizando ciertos variables y los centros de los clusters.
 
 Los centros pueden representar alguna forma del promedio de las instancias de las clases de Iris, ya que tienen la menor distancia a los otros miembros del mismo cluster
+=======
+>>>>>>> bf8f46bf7ef0e115ec5ecdedda784337ecb30883
